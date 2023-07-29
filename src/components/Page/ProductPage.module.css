@@ -1,0 +1,69 @@
+
+.container{
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 50px;
+  position: relative;
+}
+
+.image{
+  position: relative;
+  width: 500px;
+  height: 500px;
+  
+}
+
+.image img{
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.flex{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.percent {
+  color: var(--mainColor);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -2px;
+
+}
+
+.price {
+  color: var(--blackColor);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -1px;
+
+}
+
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.title{
+  color: var(--blackColor);
+  font-size: 30px;
+}
+
+.discription{
+  color: var(--grayColor)
+}
+
+.todaySale{
+  position:absolute;
+  top: 450px;
+  right: 520px;
+}

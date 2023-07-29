@@ -1,0 +1,21 @@
+.cardListcontainer{
+  margin: 30px auto 0px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
+  gap: 40px;
+
+}
+
+.sort{
+  display:flex;
+  height: 445px;
+  width: auto;
+
+
+}
+
+.sort > *:not(:last-child) {
+  margin-right: 25px;
+}

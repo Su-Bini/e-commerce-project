@@ -1,0 +1,33 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.button{
+  border:none;
+  box-shadow: none;
+  background: none;
+  font-size: 20px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+.button:hover{
+  border: 2px solid var(--grayColor100);
+ 
+}
+
+.selected{
+  font-weight: 600;
+}
+
+.blueButton{
+  color:var(--mainColor);
+
+}
+.blueButton:disabled{
+  color:var(--grayColor);
+}
+.blueButton:disabled:hover{
+  border:none;
+}

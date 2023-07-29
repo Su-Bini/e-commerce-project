@@ -1,0 +1,28 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1115px;
+  margin: 30px auto 30px;
+}
+.scrollContainer{
+  display: flex;
+  overflow: hidden;
+  width: 1010px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 10px; 
+  gap: 30px;
+}
+
+.arrow{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow > img{
+  width: 30px;
+}

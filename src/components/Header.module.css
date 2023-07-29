@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'KCCChassam';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.text {
+  font-family: 'KCCChassam', sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.logo{
+  width:160px;
+  text-align: center;
+  margin:10px 0;
+  display: flex;
+  align-items: center;
+}
+.logo > img{
+  width: 40px; 
+  margin-right: 10px;
+}
+
+.icon {
+  width: 40px;
+  text-align: center;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.icon > img {
+  width: 30px;
+  margin: auto;
+}
+
+.container{
+  width:1115px;
+  margin : 0 auto;
+}
+
+.stickyHeader{
+  display: flex;
+  align-items: center;
+  /* position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999; */
+}
+
+@media (min-width: 768px) {
+  .stickyHeader {
+    height: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+@media (min-width: 1256px) {
+  .stickyHeader {
+    max-width: 1256px;
+    margin: 0 auto;
+    padding: 0 60px;
+  }
+}
+@media (min-width: 1024px) {
+  .stickyHeader {
+    padding: 0 60px;
+  }
+}
+@media (min-width: 768px) {
+  .stickyHeader {
+    padding: 0 40px;
+  }
+}
+
+.menuContainer{
+  display:flex;
+  align-items: center;
+}
+
+.menu{
+  display:flex;
+  width: 100%;
+
+}
+
+.right{
+  margin-left:400px;
+  display: flex;
+}
+
+.loginJoin{
+  width: 300px;
+  display: flex;
+  gap:10px;
+  justify-content:flex-end;
+}

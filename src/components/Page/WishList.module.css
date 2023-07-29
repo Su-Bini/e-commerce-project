@@ -1,0 +1,42 @@
+.container{
+  display: flex;
+  width: 1115px;
+}
+
+.item{
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+.productImg{
+  width: 200px;
+  height: 200px;
+  border-radius: 12px;
+}
+
+.name{
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  background-color: white;
+  padding: 3px;
+}
+
+.wish{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.wish > img{
+  width: 20px;
+}
+
+.none{
+  color: var(--mainColor);
+  font-size: 20px;
+  margin: 50px auto;
+  width: 200px;
+}

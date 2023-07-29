@@ -1,0 +1,89 @@
+.container {
+  background-color: white;
+  border-radius: 5px;
+  height: 445px;
+  position: relative;
+
+  
+}
+.imgContainer{
+  overflow: hidden;
+  object-fit: cover;
+}
+.flex {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.mLContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 10px;
+  
+}
+
+.title {
+  color: var(--blackColor);
+  width: 260px;
+}
+
+.percent {
+  color: var(--mainColor);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-right: 5px;
+}
+
+.price {
+  color: var(--blackColor);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.rating {
+  color: var(--blackColor);
+  font-weight: 600;
+}
+
+.today {
+  color: #6fa2ef;
+  font-size: 13px;
+}
+
+.marginBottom {
+  margin-bottom: 3px;
+}
+
+.productImg {
+  width: 270px;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.productImg:hover {
+  transform: scale(1.1);
+}
+
+.todaySale{
+  position:absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.wish{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  
+}
+
+.wish > img{
+  width: 25px;
+}
