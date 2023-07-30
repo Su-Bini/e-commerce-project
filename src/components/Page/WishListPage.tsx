@@ -34,28 +34,29 @@ export default function WishListPage() {
     <div>
       <Header />
       <div>
-        {groupedWishListItems.map((group, groupIndex) => (
-          <div key={groupIndex} className={styles.container}>
-            {group.map((item) => (
-              <div key={item.id} className={styles.item}>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className={styles.productImg}
-                />
-                <div className={styles.name}>{item.name}</div>
-                <div
-                  className={styles.wish}
-                  onClick={() => handleRemoveFromWishList(item.id)}
-                >
-                  <img src={heartRedSvg} alt={item.name} />
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-        {groupedWishListItems && (
+        {!groupedWishListItems || groupedWishListItems.length === 0 ? (
           <div className={styles.none}>찜한 상품이 없습니다.</div>
+        ) : (
+          groupedWishListItems.map((group, groupIndex) => (
+            <div key={groupIndex} className={styles.container}>
+              {group.map((item) => (
+                <div key={item.id} className={styles.item}>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className={styles.productImg}
+                  />
+                  <div className={styles.name}>{item.name}</div>
+                  <div
+                    className={styles.wish}
+                    onClick={() => handleRemoveFromWishList(item.id)}
+                  >
+                    <img src={heartRedSvg} alt={item.name} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))
         )}
       </div>
     </div>

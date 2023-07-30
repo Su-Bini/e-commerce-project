@@ -107,39 +107,40 @@ export default function CartPage() {
       <Header />
       <div className={cx(styles.flex, styles.spaceBetween)}>
         <div>
-          {cartItems && (
+          {!cartItems || cartItems.length === 0 ? (
             <div className={styles.none}>장바구니에 상품이 없습니다.</div>
+          ) : (
+            cartItems.map((item: itemProps) => (
+              <div key={item.id} className={styles.container}>
+                <div className={cx(styles.flex, styles.spaceBetween)}>
+                  <div className={styles.front}>
+                    <input
+                      type="checkbox"
+                      checked={selectedItems.includes(item.id)}
+                      onChange={() => handleCheckboxChange(item.id)}
+                    />
+                    {item.today && (
+                      <div className={styles.today}>
+                        <Badge key={item.id} style={todayBadge}>
+                          오늘출발
+                        </Badge>
+                        <div>평일 12:00까지 결제시</div>
+                      </div>
+                    )}
+                  </div>
+                  <button onClick={() => handleDeleteItem(item.id)}>X</button>
+                </div>
+                <div className={cx(styles.flex, styles.flexStart)}>
+                  <img src={item.image} alt={item.name} />
+                  <div className={styles.flexColumn}>
+                    <div className={styles.title}>{item.name}</div>
+                    {item.free && <div>무료배송 | 일반택배</div>}
+                    <div> {item.price}$</div>
+                  </div>
+                </div>
+              </div>
+            ))
           )}
-          {cartItems.map((item: itemProps) => (
-            <div key={item.id} className={styles.container}>
-              <div className={cx(styles.flex, styles.spaceBetween)}>
-                <div className={styles.front}>
-                  <input
-                    type="checkbox"
-                    checked={selectedItems.includes(item.id)}
-                    onChange={() => handleCheckboxChange(item.id)}
-                  />
-                  {item.today && (
-                    <div className={styles.today}>
-                      <Badge key={item.id} style={todayBadge}>
-                        오늘출발
-                      </Badge>
-                      <div>평일 12:00까지 결제시</div>
-                    </div>
-                  )}
-                </div>
-                <button onClick={() => handleDeleteItem(item.id)}>X</button>
-              </div>
-              <div className={cx(styles.flex, styles.flexStart)}>
-                <img src={item.image} alt={item.name} />
-                <div className={styles.flexColumn}>
-                  <div className={styles.title}>{item.name}</div>
-                  {item.free && <div>무료배송 | 일반택배</div>}
-                  <div> {item.price}$</div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
         <div className={cx(styles.flexColumn, styles.pay)}>
           <div>결제금액 {getTotalPrice()}$</div>
