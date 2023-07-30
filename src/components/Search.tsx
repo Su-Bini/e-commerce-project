@@ -3,7 +3,7 @@ import { FormEvent, useState, useEffect } from "react";
 import searchSvg from "../assets/search.svg";
 import itemsData from "../items.json";
 import todaySaleData from "../todaySale.json";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Product {
   id: number;
@@ -22,11 +22,7 @@ interface Product {
 export default function Search() {
   const [keyword, setKeyword] = useState("");
   const [searchResults, setSearchResults] = useState<Product[]>([]);
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert(keyword);
-  };
+  const navigate = useNavigate();
 
   useEffect(() => {
     const combinedData: Product[] = [...itemsData, ...todaySaleData];
@@ -38,11 +34,27 @@ export default function Search() {
     setSearchResults(filteredItems);
   }, [keyword]);
 
+  const handleProductClick = (productName: string) => {
+    setKeyword(productName);
+  };
+
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (searchResults.length > 0) {
+      const firstProduct = searchResults[0];
+      setKeyword(firstProduct.name);
+      navigate(
+        `/product/${firstProduct.id}/${encodeURIComponent(firstProduct.name)}`
+      );
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.inputContainer}>
         <img src={searchSvg} alt="검색" className={styles.img} />
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handleFormSubmit} className={styles.form}>
           <input
             type="text"
             placeholder="상품검색"
@@ -58,16 +70,14 @@ export default function Search() {
         {keyword && (
           <ul className={styles.ul}>
             {searchResults.map((result: Product) => (
-              <Link to={`/product/${result.id}/${result.name}`}>
-                <div>
-                  <li
-                    key={result.id}
-                    className={`${styles.list} ${styles.hoverable}`}
-                  >
-                    {result.name}
-                  </li>
-                </div>
-              </Link>
+              <div key={result.id}>
+                <li
+                  className={`${styles.list} ${styles.hoverable}`}
+                  onClick={() => handleProductClick(result.name)}
+                >
+                  {result.name}
+                </li>
+              </div>
             ))}
           </ul>
         )}
