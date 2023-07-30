@@ -107,7 +107,7 @@ export default function CartPage() {
       <Header />
       <div className={cx(styles.flex, styles.spaceBetween)}>
         <div>
-          {cartItems && (
+          {!cartItems && (
             <div className={styles.none}>장바구니에 상품이 없습니다.</div>
           )}
           {cartItems.map((item: itemProps) => (

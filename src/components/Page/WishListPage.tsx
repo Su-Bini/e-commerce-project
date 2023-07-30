@@ -54,7 +54,7 @@ export default function WishListPage() {
             ))}
           </div>
         ))}
-        {groupedWishListItems && (
+        {!groupedWishListItems && (
           <div className={styles.none}>찜한 상품이 없습니다.</div>
         )}
       </div>
